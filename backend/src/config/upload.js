@@ -6,7 +6,7 @@ module.exports = {
         destination: path.resolve(__dirname, '..', '..', 'uploads'),
         filename: (req, file, cb) => {
             const ext = path.extname(file.originalname);
-            const name = path.basename(file.originalname, ext);
+            const name = path.basename(file.originalname, ext).replace(" ", "-");
 
             cb(null, `${name}-${Date.now()}${path.extname(ext)}`);
         },
